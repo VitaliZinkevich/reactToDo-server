@@ -1,16 +1,12 @@
 import React  from 'react';
 
 let ViewTodos = (todoList) => {
-  
-    
+
     return (
-        todoList.todoList.todos.map ((el, ind)=>{
-            console.log (ind)
-            console.log (el)
+        todoList.todoList.map ((el, ind)=>{
             return (
                 <div key={ind}>
-                <p>{el.task}</p>
-                <button>Delete</button> 
+                <p className={el.done === false ? (null) : ("text-success")} onClick={()=>{todoList.doneTodo(el.id)}}>{el.task}</p>
                 </div>
             )
         })
